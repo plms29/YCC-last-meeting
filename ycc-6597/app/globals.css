@@ -38,46 +38,60 @@ img {
   image-rendering: pixelated;
 }
 
-/* ─── The du lieu bi hong ────────────────────────────────────── */
-.fragment {
-  border: 2px solid var(--color-suit);
-  border-radius: 0;
-  background: var(--color-orbit);
-}
-.fragment-noise {
-  font-family: var(--font-display);
-  font-size: 9px;
-  line-height: 1.6;
-  color: var(--color-dust);
-  border-bottom: 2px solid var(--color-suit);
-  padding: 6px 10px;
-  overflow: hidden;
-  white-space: nowrap;
-}
+/*
+ * QUAN TRONG — cac class duoi day PHAI nam trong @layer components.
+ *
+ * Tailwind v4 dat moi utility vao @layer utilities. Trong CSS cascade, style
+ * NGOAI layer luon thang style TRONG layer, bat ke specificity. Neu de .px-btn
+ * o ngoai layer thi `border: 2px solid var(--color-suit)` cua no de chet
+ * `border-signal`, `text-signal`, `bg-suit/25`... khien moi trang thai
+ * chon / dung / sai trong ca app mat sach phan hoi thi giac — nut van an duoc
+ * nhung nhin nhu chet.
+ *
+ * Nam trong @layer components thi utility ghi de duoc binh thuong.
+ */
+@layer components {
+  /* ─── The du lieu bi hong ──────────────────────────────────── */
+  .fragment {
+    border: 2px solid var(--color-suit);
+    border-radius: 0;
+    background: var(--color-orbit);
+  }
+  .fragment-noise {
+    font-family: var(--font-display);
+    font-size: 9px;
+    line-height: 1.6;
+    color: var(--color-dust);
+    border-bottom: 2px solid var(--color-suit);
+    padding: 6px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 
-/* ─── Nut & o nhap ───────────────────────────────────────────── */
-.px-btn {
-  border: 2px solid var(--color-suit);
-  border-radius: 0;
-  background: var(--color-orbit);
-  color: var(--color-helmet);
-  transition: background 120ms linear, border-color 120ms linear;
-}
-.px-btn:active {
-  transform: translateY(2px);
-}
-.px-btn:disabled {
-  opacity: 0.35;
-}
-.px-input {
-  border: 2px solid var(--color-suit);
-  border-radius: 0;
-  background: var(--color-void);
-  color: var(--color-helmet);
-  outline: none;
-}
-.px-input:focus {
-  border-color: var(--color-signal);
+  /* ─── Nut & o nhap ─────────────────────────────────────────── */
+  .px-btn {
+    border: 2px solid var(--color-suit);
+    border-radius: 0;
+    background: var(--color-orbit);
+    color: var(--color-helmet);
+    transition: background 120ms linear, border-color 120ms linear;
+  }
+  .px-btn:active {
+    transform: translateY(2px);
+  }
+  .px-btn:disabled {
+    opacity: 0.35;
+  }
+  .px-input {
+    border: 2px solid var(--color-suit);
+    border-radius: 0;
+    background: var(--color-void);
+    color: var(--color-helmet);
+    outline: none;
+  }
+  .px-input:focus {
+    border-color: var(--color-signal);
+  }
 }
 
 @keyframes shake {

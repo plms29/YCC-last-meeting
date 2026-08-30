@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Starfield from "@/components/Starfield";
-import { FINAL_CODE } from "@/data/event";
+import { MASKED_CODE } from "@/data/event";
 import { findSlot } from "@/data/game";
 
 export default function JoinPage() {
@@ -48,7 +48,7 @@ export default function JoinPage() {
             height={96}
             priority
           />
-          <p className="font-display text-signal text-[10px]">MA {FINAL_CODE}</p>
+          <p className="font-display text-signal text-[10px]">MA {MASKED_CODE}</p>
           <h1 className="text-dust text-center text-sm">
             Bộ nhớ của ta vỡ rồi. Ngươi giữ một mảnh.
           </h1>

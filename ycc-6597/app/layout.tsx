@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Press_Start_2P, Be_Vietnam_Pro } from "next/font/google";
-import { FINAL_CODE, TOTAL_DAYS, vn } from "@/data/event";
+import { MASKED_CODE } from "@/data/event";
 import "./globals.css";
 
 const pressStart = Press_Start_2P({
@@ -17,9 +17,10 @@ const beVietnam = Be_Vietnam_Pro({
   display: "swap",
 });
 
+// Tieu de tab hien tren MOI trang, ke ca dien thoai khach — khong duoc chua ma cuoi.
 export const metadata: Metadata = {
-  title: `MÃ ${FINAL_CODE} · Nhật ký Quan sát viên`,
-  description: `Young Creation Club · Ngày thứ ${vn(TOTAL_DAYS)}`,
+  title: `MÃ ${MASKED_CODE} · Nhật ký Quan sát viên`,
+  description: "Young Creation Club · Tín hiệu từ quỹ đạo",
   robots: { index: false, follow: false },
 };
 

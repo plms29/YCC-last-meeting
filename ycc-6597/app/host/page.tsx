@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import LineSequence from "@/components/LineSequence";
 import Reveal from "@/components/Reveal";
 import Starfield from "@/components/Starfield";
-import { TOTAL_DAYS, vn } from "@/data/event";
+import { MASKED_CODE } from "@/data/event";
 
 /**
  * Moi man chieu gan voi mot moc phut cua ca buoi.
@@ -43,7 +43,8 @@ const SLIDES = [
 
 const BOI_CANH = [
   "Ngày 0. Một Quan sát viên được thả xuống quỹ đạo Trái Đất với một nhiệm vụ duy nhất: ghi lại mọi ngày của YCC.",
-  `Nó đã làm việc đó ${vn(TOTAL_DAYS)} ngày liên tục. Không nghỉ một ngày nào.`,
+  // Khong duoc noi so ngay ra day — do chinh la dap an, ma slide nay chieu o phut 55
+  "Nó đã làm việc đó liên tục từ ngày 0 tới sáng nay. Không nghỉ một ngày nào.",
   "03:07 sáng nay, tín hiệu đứt. Bộ nhớ của nó vỡ thành từng mảnh và rơi xuống — vào tay 20 người trong căn phòng này.",
   "Quan sát viên chỉ tỉnh lại nếu nhận đúng mã khôi phục bốn chữ số: chính là số ngày nó đã quan sát.",
   "Không ai trong các bạn giữ đủ mảnh. Và một trong các mảnh đã bị làm giả.",
@@ -162,7 +163,7 @@ export default function HostPage() {
             )}
           </div>
           <div className="text-center">
-            <p className="font-display text-signal text-2xl">MA {TOTAL_DAYS}</p>
+            <p className="font-display text-signal text-2xl">MA {MASKED_CODE}</p>
             <p className="text-helmet mt-4 text-3xl">Quét mã.</p>
             <p className="text-dust mt-2 text-2xl">Nhập mã trên phong bì của ngươi.</p>
             {/* QR loa den chieu la ca phong dung hinh — luon co duong go tay */}

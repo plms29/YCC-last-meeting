@@ -55,6 +55,15 @@ export const ANSWER_C2 = TOTAL_DAYS - ANSWER_Y - ANSWER_C1;
 /** Mã khôi phục bốn chữ số. */
 export const FINAL_CODE = String(TOTAL_DAYS);
 
+/**
+ * Bản che của mã cuối: "????".
+ *
+ * Dùng ở MỌI chỗ người chơi nhìn thấy trước màn reveal — máy chiếu, màn nhập mã,
+ * và tiêu đề tab. Con số thật chỉ được xuất hiện ở `/mc` (bảng đáp án) và ở
+ * component Reveal. Vẫn giữ đúng số chữ số để người chơi biết mã dài mấy ký tự.
+ */
+export const MASKED_CODE = '?'.repeat(FINAL_CODE.length);
+
 /** Tổng các chữ số của mã cuối — màn reveal dựa vào con số này. */
 export const DIGIT_SUM = [...FINAL_CODE].reduce((a, c) => a + Number(c), 0);
 

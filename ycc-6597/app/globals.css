@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+/* ─── Design system · SPEC muc 4 ─────────────────────────────── */
+@theme {
+  --color-void: #05060e;
+  --color-orbit: #0e1430;
+  --color-helmet: #e8ecf5;
+  --color-suit: #2b4a9b;
+  --color-signal: #4fd1c5;
+  --color-alarm: #e4572e;
+  --color-dust: #6b7594;
+
+  --color-ycc-yellow: #f2c230;
+  --color-ycc-red: #e4572e;
+  --color-ycc-green: #3fa96b;
+  --color-ycc-blue: #2b4a9b;
+
+  --font-display: var(--font-press-start), ui-monospace, monospace;
+  --font-body: var(--font-be-vietnam), system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-void);
+  color: var(--color-helmet);
+  font-family: var(--font-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Press Start 2P khong co dau tieng Viet -> chi dung cho so va ma slot */
+.font-display,
+.pixel {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+img {
+  image-rendering: pixelated;
+}
+
+/* ─── The du lieu bi hong ────────────────────────────────────── */
+.fragment {
+  border: 2px solid var(--color-suit);
+  border-radius: 0;
+  background: var(--color-orbit);
+}
+.fragment-noise {
+  font-family: var(--font-display);
+  font-size: 9px;
+  line-height: 1.6;
+  color: var(--color-dust);
+  border-bottom: 2px solid var(--color-suit);
+  padding: 6px 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ─── Nut & o nhap ───────────────────────────────────────────── */
+.px-btn {
+  border: 2px solid var(--color-suit);
+  border-radius: 0;
+  background: var(--color-orbit);
+  color: var(--color-helmet);
+  transition: background 120ms linear, border-color 120ms linear;
+}
+.px-btn:active {
+  transform: translateY(2px);
+}
+.px-btn:disabled {
+  opacity: 0.35;
+}
+.px-input {
+  border: 2px solid var(--color-suit);
+  border-radius: 0;
+  background: var(--color-void);
+  color: var(--color-helmet);
+  outline: none;
+}
+.px-input:focus {
+  border-color: var(--color-signal);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.shake { animation: shake 260ms steps(3, end) 1; }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: riseIn 520ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .rise { opacity: 1 !important; transform: none !important; }
+}
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.starfield span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 0;
+}
+/* lop mo - dung yen */
+.starfield .s1 { color: rgba(232, 236, 245, 0.22); box-shadow: 1827px 283px 0 0 currentColor, 722px 128px 0 0 currentColor, 2249px 470px 0 0 currentColor, 1870px 812px 0 0 currentColor, 1208px 145px 0 0 currentColor, 1399px 346px 0 0 currentColor, 1344px 1250px 0 0 currentColor, 330px 138px 0 0 currentColor, 2081px 634px 0 0 currentColor, 1066px 110px 0 0 currentColor, 1263px 1488px 0 0 currentColor, 2331px 278px 0 0 currentColor, 620px 328px 0 0 currentColor, 1551px 352px 0 0 currentColor, 622px 73px 0 0 currentColor, 1588px 1px 0 0 currentColor, 829px 1309px 0 0 currentColor, 1271px 918px 0 0 currentColor, 1470px 602px 0 0 currentColor, 375px 474px 0 0 currentColor, 1037px 243px 0 0 currentColor, 1394px 294px 0 0 currentColor, 61px 543px 0 0 currentColor, 542px 324px 0 0 currentColor, 202px 140px 0 0 currentColor, 369px 754px 0 0 currentColor, 981px 98px 0 0 currentColor, 646px 1437px 0 0 currentColor, 2120px 901px 0 0 currentColor, 1743px 189px 0 0 currentColor, 698px 329px 0 0 currentColor, 691px 329px 0 0 currentColor, 2294px 1437px 0 0 currentColor, 2298px 564px 0 0 currentColor, 301px 821px 0 0 currentColor, 1173px 672px 0 0 currentColor, 1210px 880px 0 0 currentColor, 1672px 90px 0 0 currentColor, 748px 30px 0 0 currentColor, 1141px 1378px 0 0 currentColor, 1030px 1461px 0 0 currentColor, 1127px 1293px 0 0 currentColor, 1701px 1184px 0 0 currentColor, 278px 1307px 0 0 currentColor, 2139px 1435px 0 0 currentColor, 612px 69px 0 0 currentColor, 612px 1491px 0 0 currentColor, 285px 700px 0 0 currentColor, 1367px 969px 0 0 currentColor, 53px 1300px 0 0 currentColor, 503px 477px 0 0 currentColor, 1361px 451px 0 0 currentColor, 1710px 1593px 0 0 currentColor, 2012px 530px 0 0 currentColor, 62px 1146px 0 0 currentColor, 1660px 700px 0 0 currentColor, 675px 1542px 0 0 currentColor, 815px 1348px 0 0 currentColor, 990px 632px 0 0 currentColor, 501px 1313px 0 0 currentColor, 28px 132px 0 0 currentColor, 1538px 1224px 0 0 currentColor, 471px 1535px 0 0 currentColor, 2046px 1177px 0 0 currentColor, 1386px 1594px 0 0 currentColor, 955px 552px 0 0 currentColor, 1559px 1316px 0 0 currentColor, 449px 1515px 0 0 currentColor, 1369px 877px 0 0 currentColor, 787px 1490px 0 0 currentColor, 205px 29px 0 0 currentColor, 371px 345px 0 0 currentColor, 2346px 1521px 0 0 currentColor, 628px 436px 0 0 currentColor, 1059px 939px 0 0 currentColor, 1716px 759px 0 0 currentColor, 1897px 963px 0 0 currentColor, 22px 67px 0 0 currentColor, 190px 241px 0 0 currentColor, 562px 1529px 0 0 currentColor, 1835px 305px 0 0 currentColor, 1930px 695px 0 0 currentColor, 1252px 342px 0 0 currentColor, 921px 1152px 0 0 currentColor, 1351px 241px 0 0 currentColor, 952px 1372px 0 0 currentColor, 1789px 161px 0 0 currentColor, 1204px 1587px 0 0 currentColor, 233px 156px 0 0 currentColor, 1604px 1254px 0 0 currentColor, 450px 46px 0 0 currentColor, 1481px 832px 0 0 currentColor, 1448px 1193px 0 0 currentColor, 1223px 653px 0 0 currentColor, 1025px 817px 0 0 currentColor, 1209px 1369px 0 0 currentColor, 1436px 571px 0 0 currentColor, 864px 1403px 0 0 currentColor, 578px 1214px 0 0 currentColor, 592px 1366px 0 0 currentColor, 933px 982px 0 0 currentColor, 575px 783px 0 0 currentColor, 1521px 924px 0 0 currentColor, 1583px 551px 0 0 currentColor, 1002px 1002px 0 0 currentColor, 736px 1291px 0 0 currentColor, 232px 875px 0 0 currentColor, 2286px 247px 0 0 currentColor, 2122px 31px 0 0 currentColor, 1394px 1222px 0 0 currentColor; }
+/* lop trung */
+.starfield .s2 { color: rgba(232, 236, 245, 0.45); box-shadow: 2075px 368px 0 0 currentColor, 838px 526px 0 0 currentColor, 1547px 250px 0 0 currentColor, 2317px 1152px 0 0 currentColor, 1027px 568px 0 0 currentColor, 569px 474px 0 0 currentColor, 1231px 132px 0 0 currentColor, 1526px 31px 0 0 currentColor, 1197px 977px 0 0 currentColor, 6px 550px 0 0 currentColor, 1028px 618px 0 0 currentColor, 559px 81px 0 0 currentColor, 1988px 205px 0 0 currentColor, 1515px 1574px 0 0 currentColor, 1272px 548px 0 0 currentColor, 2026px 975px 0 0 currentColor, 1289px 918px 0 0 currentColor, 1435px 1392px 0 0 currentColor, 2042px 1271px 0 0 currentColor, 1707px 1003px 0 0 currentColor, 753px 192px 0 0 currentColor, 1832px 772px 0 0 currentColor, 341px 662px 0 0 currentColor, 2118px 1516px 0 0 currentColor, 426px 1370px 0 0 currentColor, 2208px 690px 0 0 currentColor, 1653px 185px 0 0 currentColor, 34px 16px 0 0 currentColor, 642px 959px 0 0 currentColor, 1400px 365px 0 0 currentColor, 377px 739px 0 0 currentColor, 1759px 1105px 0 0 currentColor, 202px 313px 0 0 currentColor, 1012px 1018px 0 0 currentColor, 825px 1397px 0 0 currentColor, 1279px 1235px 0 0 currentColor, 1916px 1491px 0 0 currentColor, 2199px 282px 0 0 currentColor, 1322px 106px 0 0 currentColor, 1082px 342px 0 0 currentColor, 829px 595px 0 0 currentColor, 599px 1358px 0 0 currentColor, 400px 932px 0 0 currentColor, 1799px 1231px 0 0 currentColor, 2080px 86px 0 0 currentColor, 2243px 467px 0 0 currentColor, 1349px 375px 0 0 currentColor, 1505px 600px 0 0 currentColor, 138px 395px 0 0 currentColor, 1275px 353px 0 0 currentColor, 1405px 1262px 0 0 currentColor, 1537px 288px 0 0 currentColor, 1731px 1379px 0 0 currentColor, 335px 975px 0 0 currentColor, 700px 248px 0 0 currentColor; }
+/* lop sang - nhap nhay cham */
+.starfield .s3 {
+  color: rgba(232, 236, 245, 0.9);
+  box-shadow: 320px 1547px 0 0 currentColor, 116px 196px 0 0 currentColor, 831px 636px 0 0 currentColor, 1908px 1429px 0 0 currentColor, 1248px 1401px 0 0 currentColor, 2308px 1261px 0 0 currentColor, 2145px 1384px 0 0 currentColor, 605px 946px 0 0 currentColor, 528px 1303px 0 0 currentColor, 927px 670px 0 0 currentColor, 1921px 306px 0 0 currentColor, 878px 250px 0 0 currentColor, 1054px 1354px 0 0 currentColor, 1707px 643px 0 0 currentColor, 1653px 109px 0 0 currentColor, 1459px 361px 0 0 currentColor, 702px 628px 0 0 currentColor, 2339px 614px 0 0 currentColor, 1931px 851px 0 0 currentColor, 1347px 943px 0 0 currentColor, 466px 503px 0 0 currentColor, 1540px 228px 0 0 currentColor;
+  animation: twinkle 5.5s steps(2, end) infinite;
+}
+.starfield .s4 {
+  color: rgba(79, 209, 197, 0.75);
+  box-shadow: 1113px 1381px 0 0 currentColor, 1055px 675px 0 0 currentColor, 388px 189px 0 0 currentColor, 471px 797px 0 0 currentColor, 1550px 1450px 0 0 currentColor, 1100px 681px 0 0 currentColor, 1752px 1179px 0 0 currentColor, 720px 123px 0 0 currentColor, 82px 649px 0 0 currentColor, 1443px 1381px 0 0 currentColor, 1428px 342px 0 0 currentColor, 2205px 1581px 0 0 currentColor;
+  animation: twinkle 8s steps(2, end) infinite 1.7s;
+}
+@keyframes twinkle {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0.15; }
+  100% { opacity: 1; }
+}
+
+/* ─── The manh de bo phong bi (trang /in) ────────────────────── */
+.in-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed #000;
+  padding: 14px 16px;
+  min-height: 300px;
+  background: #fff;
+  color: #000;
+}
+
+/* ─── In: /chia (danh sach) va /in (20 the) ──────────────────── */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+  html,
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .starfield {
+    display: none;
+  }
+  .fragment {
+    border-color: #000;
+    background: #fff;
+    break-inside: avoid;
+  }
+  .fragment-noise {
+    color: #000;
+    border-color: #000;
+  }
+  .text-helmet,
+  .text-signal,
+  .text-dust {
+    color: #000 !important;
+  }
+
+  /* Hai the moi hang, khong the nao bi cat doi giua hai trang */
+  .in-page {
+    padding: 0 !important;
+  }
+  /* Breakpoint sm: khong chac ap dung khi in — ep hai cot */
+  .in-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+    max-width: none !important;
+  }
+  .in-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    min-height: 88mm;
+    margin: 0;
+    border-radius: 0;
+  }
+}

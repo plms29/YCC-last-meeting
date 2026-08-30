@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ycc-6597",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "ycc-6597", "run", "dev"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
